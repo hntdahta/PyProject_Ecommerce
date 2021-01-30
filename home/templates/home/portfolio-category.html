@@ -1,0 +1,45 @@
+{% extends "home/base.html" %}
+{% block content %}
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+<div id="content" class="site-content">
+			<div id="primary" class="content-area column full">
+				<main id="main" class="site-main">
+
+				<header class="page-header">
+				<h3 class="page-title">
+					{{Clothes.categoryname}}
+				</h3>
+				</header>
+
+				<div class="grid portfoliogrid">
+				{% for item in Clothes %}
+					<article class="hentry">
+					<header class="entry-header">
+					<div class="entry-thumbnail">
+						<a href="/{{ item.id }}"><img src="{{item.image.url}}" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="p1"/></a>
+					</div>
+					<h2 class="entry-title"><a href="/{{ item.id }}" rel="bookmark">{{item.name}}</a></h2>
+					<p class="price">
+						<span class="amount">{{item.price}} VNĐ</span>
+					</p>
+					</header>
+					</article>
+				{% endfor %}
+				</div>
+				<!-- .grid -->
+
+				<nav class="pagination">
+				<span class="page-numbers current">1</span>
+				<a class="page-numbers" href="#">2</a>
+				<a class="next page-numbers" href="#">Next »</a>
+				</nav>
+				<br/>
+
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+		</div>
+		<!-- #content -->
+</body>
+{% endblock %}

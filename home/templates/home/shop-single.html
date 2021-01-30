@@ -1,0 +1,76 @@
+{% extends "home/base.html" %}
+{% block content %}
+<body class="single single-product woocommerce woocommerce-page">
+<div id="content" class="site-content">
+	<div id="primary" class="content-area column full">
+		<main id="main" class="site-main" role="main">
+		<div id="container">
+			<div id="content" role="main">
+				<nav class="woocommerce-breadcrumb" itemprop="breadcrumb"><a href="{% url 'home' %}">Trang chủ</a> / {{Clothes.name}}</nav>
+				<div itemscope itemtype="http://schema.org/Product" class="product">
+					<div class="images">
+						<a href="" itemprop="image" class="woocommerce-main-image zoom" title="" data-rel="prettyPhoto">
+						<img src="{{Clothes.image.url}}" alt="" width="40%" height="40%"></img></a>
+					</div>
+					<div class="summary entry-summary">
+						<h1 itemprop="name" class="product_title entry-title">{{Clothes.name}}</h1>
+						<div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+							<br>
+							<p class="price">
+								<span class="amount">Giá: {{Clothes.price}} VNĐ</span>
+							</p>
+							<meta itemprop="price" content="35"/>
+							<meta itemprop="priceCurrency" content="VND"/>
+							<link itemprop="availability" href="http://schema.org/InStock"/>
+						</div>
+						<!--<div itemprop="description">
+							<p>
+								{{Clothes.description}}
+							</p>
+						</div>-->
+						<form class="cart" method="post" enctype='multipart/form-data'>
+							<div class="quantity">
+								<input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
+							</div>
+							<button type="submit" class="single_add_to_cart_button button alt">Thêm vào giỏ</button>
+						</form>
+						<div class="product_meta">
+							<span class="posted_in">Loại sản phẩm:
+							<a href="//{{Category.id}}" rel="tag">{{Clothes.categoryname}}</a>
+							</span>
+						</div>
+					</div>
+					<!-- .summary -->
+					<div class="woocommerce-tabs wc-tabs-wrapper">
+							<div class="panel entry-content wc-tab" id="tab-description">
+							<h2>Mô tả sản phẩm</h2>
+							<p>
+								{{Clothes.description}}
+							</p>
+						</div>
+					</div>
+					<div class="related products">
+
+						<h2>Sản phẩm liên quan</h2>
+						<ul class="products">
+							<li class="product">
+							<a href="/{{Clothes.id}}">
+							<img src="{{Clothes.image.url}}" alt=""></img>
+							<h3>{{Clothes.name}}</h3>
+							<span class="price"><span class="amount">{{Clothes.price}}</span></span>
+							</a>
+							<a href="#" class="button">Thêm vào giỏ</a>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		</main>
+		<!-- #main -->
+	</div>
+	<!-- #primary -->
+</div>
+</body>
+{% endblock %}
