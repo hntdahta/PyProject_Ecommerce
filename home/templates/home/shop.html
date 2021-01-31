@@ -1,10 +1,48 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
+{% extends "home/base.html" %}
+{% block content %}
+<body class="archive post-type-archive post-type-archive-product woocommerce woocommerce-page">
+<div id="content" class="site-content">
+			<div id="primary" class="content-area column full">
+				<main id="main" class="site-main" role="main">
+				<p class="woocommerce-result-count">
+					 Hiển thị 1-6 của {{Clothes.count}} sản phẩm
+				</p>
+				<form class="woocommerce-ordering" method="get">
+					<select name="orderby" class="orderby">
+						<option value="menu_order" selected="selected">Sắp xếp</option>
+						<option value="popularity">Sản phẩm nổi bật</option>
+						<option value="date">Sản phẩm mới nhất</option>
+						<option value="price">Theo giá: từ thấp đến cao</option>
+						<option value="price-desc">Theo giá: cao đến thấp</option>
+					</select>
+				</form>
+				<ul class="products">
+					{% for item in page.object_list %}
+					<li class="product">
+					<a href="/{{ item.id }}">
+					<img src="{{item.image.url}}" alt="">
+					<h3>{{item.name}}</h3>
+					<span class="price"><span class="amount">{{item.price}}</span></span>
+					</a><a href="#" class="button">Thêm vào giỏ</a>
+					</li>
+					{% endfor %}
+				</ul>
+				<nav class="woocommerce-pagination">
+				<ul class="page-numbers">
+					{% if page.has_previous %}
+					<li><a class="next page-numbers" href="{% url 'shop' %}?page={{ page.previous_page_number }}">←</a></li>
+					{% endif %}
+					{% if page.has_next %}
+					<li><a class="next page-numbers" href="{% url 'shop' %}?page={{ page.next_page_number }}">→</a></li>
+					{% endif %}
+				</ul>
+				</nav>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+		</div>
+		<!-- #content -->
+	</div>
 </body>
-</html>
+{% endblock %}

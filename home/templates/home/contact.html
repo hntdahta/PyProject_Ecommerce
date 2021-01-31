@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "home/base.html" %}
+{% block content %}
+<body class="home page page-template page-template-template-portfolio page-template-template-portfolio-php">
+		<div id="content" class="site-content">
+			<div id="primary" class="content-area column full">
+				<main id="main" class="site-main">
+				<article id="post-39" class="post-39 page type-page status-publish hentry">
+				<header class="entry-header">
+				<h1 class="entry-title">Liên hệ</h1>
+				</header>
+				<!-- .entry-header -->
+				<div class="entry-content">
+                    <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=176%20Tr%E1%BA%A7n%20Ph%C3%BA,%20Hu%E1%BA%BF+(Moschino)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://www.maps.ie/route-planner.htm">Driving Route Planner</a></div>
+					<div class="wpcmsdev-columns">
+						<div class="column column-width-one-half">
+							<h4>Liên hệ với chúng tôi</h4>
 
+							<form class="wpcf7" method="post" action="contact.php" id="contactform">
+								<div class="form">
+									<p><input type="text" name="name" placeholder="Tên của bạn *"></p>
+									<p><input type="text" name="email" placeholder="Địa chỉ Email *"></p>
+									<p><textarea name="comment" rows="3" placeholder="Tin nhắn *"></textarea></p>
+									<input type="submit" id="submit" class="clearfix btn" value="Gửi">
+								</div>
+							</form>
+							<div class="done">
+								Phản hồi của bạn đã được gửi, cảm ơn bạn!
+							</div>
+
+						</div>
+						<div class="column column-width-one-half">
+                            <h4>Địa chỉ: 176 Trần Phú - Thành Phố Huế</h4>
+							<h4>Di động: +84911349516</h4>
+                            <h4>Email: ngthnhdat@gmail.com</h4>
+							<p>
+                                Thời gian mở cửa:
+								Thứ Hai – Thứ Sáu: 9:00 sáng đến 5:00 chiều<br>
+								Thứ Bảy: 10:00 sáng đến 2:00 chiều<br>
+								Chủ Nhật: Đóng cửa
+							</p>
+						</div>
+					</div>
+				</div>
+				<!-- .entry-content -->
+				</article>
+				</main>
+				<!-- #main -->
+			</div>
+			<!-- #primary -->
+		</div>
 </body>
-</html>
+{% endblock %}

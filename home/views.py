@@ -24,3 +24,21 @@ def detail(request, id):
 def category(request, id):
     category = Category.objects.filter(id=id)
     return render(request, 'home/portfolio-category.html', {'Category':category})
+
+def shop(request):
+    clothes = Clothes.objects.all()
+    clothes_paginator = Paginator(clothes, 6)
+    page_num = request.GET.get('page')
+    page = clothes_paginator.get_page(page_num)
+    Data = {
+        'Clothes': Clothes.objects.all(),
+        'count': clothes_paginator.count,
+        'page': page
+    }
+    return render(request, 'home/shop.html', Data)
+
+def contact(request):
+    return render(request, 'home/contact.html')
+
+def about(request):
+    return render(request, 'home/about.html')
